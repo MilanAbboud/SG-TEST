@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès avec mot de passe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #password-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #square-button {
+            width: 100px;
+            height: 100px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #square-button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="square-button">Cliquez ici</button>
+
+    <div id="password-container">
+        <input type="password" id="password" placeholder="Entrez le mot de passe">
+        <button id="submit-button">Valider</button>
+    </div>
+
+    <script>
+        const button = document.getElementById('square-button');
+        const passwordContainer = document.getElementById('password-container');
+        const submitButton = document.getElementById('submit-button');
+        const passwordInput = document.getElementById('password');
+
+        button.addEventListener('click', () => {
+            passwordContainer.style.display = 'block';
+        });
+
+        submitButton.addEventListener('click', () => {
+            const password = passwordInput.value;
+            const correctPassword = 'monmotdepasse'; // Remplacez par le mot de passe correct
+
+            if (password === correctPassword) {
+                window.location.href = 'https://www.example.com'; // Remplacez par votre lien
+            } else {
+                alert('Mot de passe incorrect');
+            }
+        });
+    </script>
+</body>
+</html>
